@@ -14,5 +14,13 @@
         <members>Admin</members>
         <name>Profile</name>
     </types>
+    <types>
+        <members>Contact.All_Contacts</members>        
+        <name>ApprovalProcess</name>
+    </types>
+    <types>
+        <members>Contact</members>        
+        <name>Workflow</name>
+    </types>
     <version>56.0</version>
 </Package>
