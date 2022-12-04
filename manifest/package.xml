@@ -26,5 +26,14 @@
         <members>Contact_Auto_Submit</members>        
         <name>Flow</name>
     </types>
+    <types>
+        <members>ContactTrigger</members>        
+        <name>ApexTrigger</name>
+    </types>
+        <types>
+        <members>ContactTriggerHandler</members>
+        <members>ContactTriggerHandlerTest</members>        
+        <name>ApexClass</name>
+    </types>
     <version>56.0</version>
 </Package>
