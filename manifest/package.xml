@@ -21,6 +21,10 @@
     <types>
         <members>Contact</members>        
         <name>Workflow</name>
+    </types>    
+    <types>
+        <members>Contact_Auto_Submit</members>        
+        <name>Flow</name>
     </types>
     <version>56.0</version>
 </Package>
