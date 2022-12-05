@@ -1,0 +1,58 @@
+<template>
+    <lightning-card title="To Do List" icon-name="standard:record">
+        <div class="slds-var-m-around_medium">
+            <template if:true={todos}>
+                <template for:each={todos} for:item="todo">
+                    <lightning-layout
+                        key={todo.Id}
+                        class="slds-var-m-vertical_x-small"
+                    >
+                        <lightning-layout-item size="3" padding="around-small">
+                            Name: <lightning-button variant="Base" label={todo.Name} onclick={viewRecord} value={todo.Id}></lightning-button>                                                    
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3" padding="around-small">
+                            Contact: {todo.Contact__r.Name}                             
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3" padding="around-small">
+                            Actions: {todo.Actions__c}                                  
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2" padding="around-small">
+                            Status: {todo.Status__c}                                    
+                        </lightning-layout-item>
+                        <lightning-layout-item size="1">
+                            <lightning-button-icon
+                                icon-name="utility:edit"
+                                onclick={editToDo}
+                                data-recordid={todo.Id}
+                            ></lightning-button-icon>
+                            <lightning-button-icon
+                                icon-name="utility:delete"
+                                onclick={deleteToDo}
+                                data-recordid={todo.Id}
+                            ></lightning-button-icon>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+            </template>
+            <lightning-button
+                label="New"
+                variant="brand"
+                onclick={createToDo}
+            ></lightning-button>
+        
+            <template if:true={showCreateEdit}>                
+                <lightning-card title="Create/Edit To Do" icon-name="standard:record">
+                    <div class="slds-var-m-around_medium">
+                        <lightning-record-form
+                            record-id={editId}
+                            object-api-name={objectApiName}
+                            fields={fields}
+                            onsuccess={handleSuccess}
+                            oncancel={handleCancel}>
+                        </lightning-record-form>
+                    </div>
+                </lightning-card>
+            </template>            
+        </div>
+    </lightning-card>
+</template>
